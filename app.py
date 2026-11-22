@@ -23,7 +23,7 @@ if name:
         )
 
         if answer == "Roz obviously":
-            st.write("CORRECT ANSWER!!! 💅")
+            st.write("Wow u are very correct")
 
             if st.button("Open your present 🎁"):
 
