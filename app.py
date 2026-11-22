@@ -17,9 +17,9 @@ if name:
         st.write("Welcome, birthday girl!!")
 
         answer = st.radio(
-            "Who is the coolest person ever?",
-            ["Choose one...", "Taylor Swift",
-             "Some random person", "Roz obviously"]
+            "Who is the coolest (and shortest) person ever?",
+            ["Choose one...", "Some random person",
+             "Another random person", "Roz obviously"]
         )
 
         if answer == "Roz obviously":
@@ -53,7 +53,7 @@ if name:
                 st.write("Love you lots!! 💕")
 
         elif answer != "Choose one...":
-            st.error("WRONG ANSWER 😭 Try again.")
+            st.error("WRONG ANSWER BRU 😭 Try again.")
 
     else:
         st.error("ACCESS DENIED 🚨")
