@@ -3,34 +3,58 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 
-st.title("A little birthday surprise :)")
+st.set_page_config(page_title="For Roz 💗")
 
-name = st.text_input("What's your name?")
+st.title("🎀 A Very Important Website 🎀")
+st.write("Only one person is allowed to enter...")
+
+name = st.text_input("State your name 👀")
 
 if name:
-    if name.lower().strip() in ["roselyn", "roz"]:
-        st.write("HAPPY BIRTHDAY ROZ!! 🎉")
-        st.write("I made you something...")
+    if name.strip().lower() in ["roselyn", "roz"]:
 
-        if st.button("Click here 💗"):
-            t = np.linspace(0, 2 * np.pi, 300)
+        st.success("IDENTITY CONFIRMED ✅")
+        st.write("Welcome, birthday girl!!")
 
-            x = 16 * np.sin(t)**3
-            y = (13 * np.cos(t)
-                 - 5 * np.cos(2*t)
-                 - 2 * np.cos(3*t)
-                 - np.cos(4*t))
+        answer = st.radio(
+            "Who is the coolest person ever?",
+            ["Choose one...", "Taylor Swift",
+             "Some random person", "Roz obviously"]
+        )
 
-            fig, ax = plt.subplots()
-            ax.plot(x, y, color="hotpink", linewidth=3)
-            ax.fill(x, y, color="pink")
-            ax.axis("equal")
-            ax.axis("off")
+        if answer == "Roz obviously":
+            st.write("CORRECT ANSWER!!! 💅")
 
-            st.pyplot(fig)
+            if st.button("Open your present 🎁"):
 
-            st.write("Happy birthday to my favorite Roz!")
-            st.write("So glad we're best friends :)")
-            st.balloons()
+                st.balloons()
+                st.write("Drawing your present...")
+
+                t = np.linspace(0, 2*np.pi, 300)
+
+                x = 16*np.sin(t)**3
+                y = (13*np.cos(t)
+                     - 5*np.cos(2*t)
+                     - 2*np.cos(3*t)
+                     - np.cos(4*t))
+
+                fig, ax = plt.subplots()
+                ax.fill(x, y, color="hotpink")
+                ax.plot(x, y, color="deeppink")
+                ax.axis("equal")
+                ax.axis("off")
+
+                st.pyplot(fig)
+                plt.close(fig)
+
+                st.subheader("HAPPY BIRTHDAY ROZ!!! 💗")
+                st.write("You're genuinely one of my favorite people.")
+                st.write("I'm so glad we're best friends.")
+                st.write("Love you lots!! 💕")
+
+        elif answer != "Choose one...":
+            st.error("WRONG ANSWER 😭 Try again.")
+
     else:
-        st.write("Hmm... this isn't for you 🤨")
+        st.error("ACCESS DENIED 🚨")
+        st.write("This website is for Roz only!")
